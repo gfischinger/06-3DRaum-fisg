@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TMPro;
 
-public class HttpReqRegex : MonoBehaviour {
+public class HttpReq: MonoBehaviour {
     
     string newURLSWEF = "https://www.htl-salzburg.ac.at/lehrerinnen-details/schweiberer-franz-prof-dipl-ing-c-205.html";
     string newURLMEES = "https://www.htl-salzburg.ac.at/index.php/lehrerinnen-details/meerwald-stadler-susanne-prof-dipl-ing-g-009.html";
@@ -61,10 +61,10 @@ public class HttpReqRegex : MonoBehaviour {
     }
 
 
-    private string ExtractValue(string html, string pattern) {
-        var match = Regex.Match(html, pattern, RegexOptions.Singleline);
+    private string ExtractValue(string html, string regExPattern) {
+        var match = Regex.Match(html, regExPattern, RegexOptions.Singleline);
         if (match.Success) {
-            return match.Groups[1].Value.Trim();
+            return match.Groups[1].Value;
         }
         return "nicht gefunden";
     }
